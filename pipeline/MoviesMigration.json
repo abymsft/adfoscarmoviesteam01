@@ -1,0 +1,146 @@
+{
+	"name": "MoviesMigration",
+	"properties": {
+		"description": "Movies migration from SQL to CosmosDB",
+		"activities": [
+			{
+				"name": "ForEach_oc0",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.cw_items",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy_oc0",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [
+								{
+									"name": "Source",
+									"value": "dbo.@{item().source.table}"
+								},
+								{
+									"name": "Destination",
+									"value": "@{item().destination.collectionName}"
+								}
+							],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "CosmosDbSqlApiSink",
+									"writeBehavior": "insert"
+								},
+								"enableStaging": false,
+								"validateDataConsistency": false
+							},
+							"inputs": [
+								{
+									"referenceName": "SourceDataset_oc0",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_table": "@item().source.table"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DestinationDataset_oc0",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_collectionName": "@item().destination.collectionName"
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"cw_items": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"source": {
+							"table": "Cartitem"
+						},
+						"destination": {
+							"collectionName": "Cartitem"
+						}
+					},
+					{
+						"source": {
+							"table": "Category"
+						},
+						"destination": {
+							"collectionName": "Category"
+						}
+					},
+					{
+						"source": {
+							"table": "Event"
+						},
+						"destination": {
+							"collectionName": "Event"
+						}
+					},
+					{
+						"source": {
+							"table": "Item"
+						},
+						"destination": {
+							"collectionName": "Item"
+						}
+					},
+					{
+						"source": {
+							"table": "ItemAggregate"
+						},
+						"destination": {
+							"collectionName": "ItemAggregate"
+						}
+					},
+					{
+						"source": {
+							"table": "OrderDetails"
+						},
+						"destination": {
+							"collectionName": "OrderDetails"
+						}
+					},
+					{
+						"source": {
+							"table": "Orders"
+						},
+						"destination": {
+							"collectionName": "Orders"
+						}
+					},
+					{
+						"source": {
+							"table": "User"
+						},
+						"destination": {
+							"collectionName": "User"
+						}
+					}
+				]
+			}
+		},
+		"annotations": []
+	}
+}

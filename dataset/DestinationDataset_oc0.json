@@ -1,0 +1,23 @@
+{
+	"name": "DestinationDataset_oc0",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CosmosDbmovies",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_collectionName": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {},
+		"typeProperties": {
+			"collectionName": {
+				"value": "@dataset().cw_collectionName",
+				"type": "Expression"
+			}
+		}
+	}
+}
