@@ -1,0 +1,24 @@
+{
+	"name": "Trigger_oc0",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "MoviesMigration",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 24,
+				"startTime": "2022-03-01T12:09:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
