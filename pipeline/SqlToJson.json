@@ -26,7 +26,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT [value] FROM OPENJSON(\r\n  (SELECT\r\n    o.OrderID,\r\n    o.OrderDate,\r\n    o.FirstName,\r\n    o.LastName,\r\n    o.Address,\r\n    o.City,\r\n    o.State,\r\n    o.PostalCode,\r\n    o.Country,\r\n    o.Phone,\r\n\to.SMSOptIn,\r\n\to.SMSStatus,\r\n\to.Email,\r\n\to.ReceiptUrl,\r\n    o.Total,\r\n\to.PaymentTransactionId,\r\n\to.HasBeenShipped,\r\n    (select OrderDetailId, Email, ProductId, Quantity, UnitPrice from OrderDetails od where od.OrderId = o.OrderId for json auto) as OrderDetails\r\n   FROM Orders o FOR JSON PATH)\r\n)",
+						"sqlReaderQuery": "SELECT [value] FROM OPENJSON(\n  (SELECT\n    o.OrderId,\n    o.OrderDate,\n    o.FirstName,\n    o.LastName,\n    o.Address,\n    o.City,\n    o.State,\n    o.PostalCode,\n    o.Country,\n    o.Phone,\n\to.SMSOptIn,\n\to.SMSStatus,\n\to.Email,\n\to.ReceiptUrl,\n    o.Total,\n\to.PaymentTransactionId,\n\to.HasBeenShipped,\n    (select OrderDetailId, Email, ProductId, Quantity, UnitPrice from OrderDetails od where od.OrderId = o.OrderId for json auto) as OrderDetails\n   FROM Orders o FOR JSON PATH)\n)",
 						"partitionOption": "None"
 					},
 					"sink": {
