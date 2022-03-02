@@ -11,6 +11,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "Category.json",
+				"folderPath": "Category",
 				"container": "storedbjson"
 			}
 		},
