@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "orders.json",
+				"fileName": "Items.json",
+				"folderPath": "Items",
 				"container": "storedbjson"
 			}
 		},
