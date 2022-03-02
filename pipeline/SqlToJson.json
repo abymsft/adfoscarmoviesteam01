@@ -1,0 +1,62 @@
+{
+	"name": "SqlToJson",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_5th",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "."
+					},
+					{
+						"name": "Destination",
+						"value": "storedbjson//orders.json"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT [value] FROM OPENJSON(\r\n  (SELECT\r\n    o.OrderID,\r\n    o.OrderDate,\r\n    o.FirstName,\r\n    o.LastName,\r\n    o.Address,\r\n    o.City,\r\n    o.State,\r\n    o.PostalCode,\r\n    o.Country,\r\n    o.Phone,\r\n\to.SMSOptIn,\r\n\to.SMSStatus,\r\n\to.Email,\r\n\to.ReceiptUrl,\r\n    o.Total,\r\n\to.PaymentTransactionId,\r\n\to.HasBeenShipped,\r\n    (select OrderDetailId, Email, ProductId, Quantity, UnitPrice from OrderDetails od where od.OrderId = o.OrderId for json auto) as OrderDetails\r\n   FROM Orders o FOR JSON PATH)\r\n)",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_5th",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_5th",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
