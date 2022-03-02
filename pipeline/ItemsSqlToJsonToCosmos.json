@@ -101,7 +101,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "CosmosDbSqlApiCollection1",
+						"referenceName": "ItemsDataSet",
 						"type": "DatasetReference"
 					}
 				]

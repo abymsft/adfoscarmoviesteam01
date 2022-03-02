@@ -1,0 +1,15 @@
+{
+	"name": "ItemsDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Moviesver2CosmosDb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {},
+		"typeProperties": {
+			"collectionName": "Item"
+		}
+	}
+}
