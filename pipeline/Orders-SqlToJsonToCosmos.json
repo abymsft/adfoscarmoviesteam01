@@ -1,5 +1,5 @@
 {
-	"name": "SqlToJson",
+	"name": "Orders-SqlToJsonToCosmos",
 	"properties": {
 		"activities": [
 			{
