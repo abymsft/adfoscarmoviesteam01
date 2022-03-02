@@ -1,0 +1,135 @@
+//ITEM
+{
+    "ItemId": 397635,
+    "VoteCount": 0,
+    "ProductName": "The Old Generation",
+    "ImdbId": 6478033,
+    "Description": "Affronting everything discretion men now own did. Still round match we to. Frankness pronounce daughters remainder extensive has but. Happiness cordially one determine concluded fat. Plenty season …",
+    "ImagePath": "/movieposter.jpg",
+    "ThumbnailPath": null,
+    "UnitPrice": 14.12,
+    "CategoryId": 80,
+    "Category": null,
+    "Popularity": 18.99,
+    "OriginalLanguage": "en",
+    "ReleaseDate": "2002-12-28T00:00:00",
+    "VoteAverage": 7.16
+}
+
+//Category
+{
+    "CategoryId": "80",
+    "CategoryName": "Crime",
+    "CategoryDescription": null,
+    "Products": null //TBD
+}
+//ItemAggregate
+{
+    "ItemId": "397635",
+    "BuyCount": 1046,
+    "ViewDetailsCount": 0,
+    "AddToCartCount": 0
+}
+    
+//Order
+{
+    "OrderId": 79,
+    "OrderDate": "2019-09-01T14:15:32.73",
+    "FirstName": "Scottie",
+    "LastName": "Clarke",
+    "Address": "25 East Milton Way",
+    "City": "Baltimore",
+    "State": "West Virginia",
+    "PostalCode": "57232",
+    "Country": "United States",
+    "Phone": "618-9644458",
+    "SMSOptIn": true,
+    "SMSStatus": null,
+    "Email": "ogflkbh.nrovdvk@sgphgn.com",
+    "ReceiptUrl": null,
+    "Total": 22.54,
+    "PaymentTransactionId": "XAT87285",
+    "HasBeenShipped": false,
+
+    //OrderDetails
+    "OrderDetails": [
+        {
+            "Email": "ogflkbh.nrovdvk@sgphgn.com",
+            "ItemId": 397529,
+            "Quantity": 1,
+            "UnitPrice": 5.81
+        }
+    ]
+}
+
+//User
+{
+    "UserId": 400004,
+    "Name": "Action Fan",
+    "Email": "action@contosomovies.com",
+    "CategoryId": 28,
+    "Personality": null,
+    "id": "6eb2f2f1-c622-4f9c-8603-547a32931530",
+    "event": ["AGUID01", "AGUID02"]
+
+}
+//Event
+{
+    "eventid":"AGUID01",
+    "event": "addToCart",
+    "itemId": null,
+    "orderId": null,
+    "contentId": 3393786,
+    "sessionId": "404010",
+    "created": "2019-11-09T17:58:44",
+    "region": null
+}
+{
+    "eventid":"AGUID02",
+    "event": "buy",
+    "itemId": null,
+    "orderId": null,
+    "contentId": 3393786,
+    "sessionId": "404010",
+    "created": "2019-11-09T17:58:44",
+    "region": null
+}
+details
+buy
+more_details
+addToCart
+
+//Approach two
+//Event
+{
+    "eventid":"AGUID01",
+    "event": "addToCart",
+    "itemId": null,
+    "orderId": null,
+    "contentId": 3393786,
+    "sessionId": "404010",
+    "created": "2019-11-09T17:58:44",
+    "region": null,
+    "User": ["400004", "400056"]
+}
+{
+    "eventid":"AGUID02",
+    "event": "buy",
+    "itemId": null,
+    "orderId": null,
+    "contentId": 3393786,
+    "sessionId": "404010",
+    "created": "2019-11-09T17:58:44",
+    "region": null,
+    "User": ["400004", "400057"]
+}
+//User
+{
+    "UserId": 400004,
+    "Name": "Action Fan",
+    "Email": "action@contosomovies.com",
+    "CategoryId": 28,
+    "Personality": null,
+    "id": "6eb2f2f1-c622-4f9c-8603-547a32931530"
+}
+
